@@ -10,10 +10,15 @@ import axios from "axios";
 import Footer from "./components/Footer";
 import { SingleProduct } from "./pages/SingleProduct";
 import { ProductCategory } from "./pages/ProductCategory";
+import { useCart } from "./context/cartContext";
+import { ProtectedRoute } from "./components/ProtectedRoute";
 
 export const App = () => {
   const [location, setLocation] = useState();
   const [openDropDown, setOpenDropDown] = useState(false);
+
+  const { cartItem, setCartItem } = useCart();
+
   const getLocation = async () => {
     navigator.geolocation.getCurrentPosition(async (pos) => {
       const { latitude, longitude } = pos.coords;
@@ -34,6 +39,19 @@ export const App = () => {
     getLocation();
   }, []);
 
+  // load cart from local storage on initial render
+  useEffect(() => {
+    const storedCart = localStorage.getItem("cartItem");
+    if (storedCart) {
+      setCartItem(JSON.parse(storedCart));
+    }
+  }, []);
+
+  // save cart to local storage whenever it changes
+  useEffect(() => {
+    localStorage.setItem("cartItem", JSON.stringify(cartItem));
+  }, [cartItem]);
+
   return (
     <BrowserRouter>
       <Navbar
@@ -51,8 +69,10 @@ export const App = () => {
         <Route path="/contact" element={<Contact />} />
         <Route
           path="/cart"
-          element={<Cart location={location} getLocation={getLocation} />}
-        />
+          element=<ProtectedRoute>
+            <Cart location={location} getLocation={getLocation} />
+          </ProtectedRoute>
+        ></Route>
       </Routes>
       <Footer />
     </BrowserRouter>

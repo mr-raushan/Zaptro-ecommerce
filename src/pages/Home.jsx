@@ -5,7 +5,7 @@ import { Feature } from "../components/Feature";
 
 export const Home = () => {
   return (
-    <div className="">
+    <div className="overflow-x-hidden">
       <Carousel />
       <Category />
       <Banner />

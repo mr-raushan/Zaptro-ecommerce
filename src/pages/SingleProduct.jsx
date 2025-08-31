@@ -39,18 +39,18 @@ export const SingleProduct = () => {
     <div>
       <button
         onClick={() => navigate(-1)}
-        className="bg-red-500 ml-60 hover:bg-red-600 text-white py-2 px-4 rounded-lg "
+        className="bg-red-500 ml-10 mt-10 hover:bg-red-600 text-white py-2 px-4 rounded-lg "
       >
         Back
       </button>
       {singleProduct ? (
         <div className="px-4 pb-4 md:px-0">
           <BreadCrumbs title={singleProduct?.title} />
-          <div className="max-w-6xl mx-auto md:p-6 grid grid-cols-2 gap-6">
+          <div className="max-w-6xl  md:flex-row mx-auto md:p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="w-full">
               <img
                 src={singleProduct?.image}
-                alt={singleProduct?.title}
+                alt={singleProduct?.title.slice(0, 10) + "..."}
                 className="rounded-2xl w-full object-cover"
               />
             </div>
@@ -88,13 +88,15 @@ export const SingleProduct = () => {
                   className="w-20 border border-gray-300 rounded-lg px-3 py-1 focus:outline-none focus:ring-2 foucs:ring-red-500"
                 />
               </div>
-              <button
-                onClick={() => addToCart(singleProduct, quantity)}
-                className="bg-red-500 -mt-10 flex items-center gap-2 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-lg absolute bottom-2 cursor-pointer"
-              >
-                <ShoppingCart className="w-6 h-6" />
-                <span>Add to Cart</span>
-              </button>
+              <div className="flex items-center justify-end">
+                <button
+                  onClick={() => addToCart(singleProduct, quantity)}
+                  className="bg-red-500 flex items-center gap-2 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-lg w-fit cursor-pointer "
+                >
+                  <ShoppingCart className="w-6 h-6" />
+                  <span>Add to Cart</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>

@@ -13,7 +13,7 @@ export const Cart = ({ location, getLocation }) => {
     <div className="max-w-6xl mx-auto mt-10 mb-10">
       {cartItem.length > 0 ? (
         <div>
-          <h1 className="font-bold text-2xl">
+          <h1 className="font-bold text-2xl ml-6 md:ml-0">
             My Cart <span className="text-red-500 ">({cartItem.length})</span>{" "}
           </h1>
           <div>
@@ -31,15 +31,15 @@ export const Cart = ({ location, getLocation }) => {
                         alt={item.title.slice(0, 20) + "..."}
                       />
                       <div>
-                        <h1 className="w-[300px]">
+                        <h1 className="w-[200px] md:w-[300px]">
                           {item.title.slice(0, 60) + "..."}
                         </h1>
-                        <p className="font-bold text-red-500 text-lg">
+                        <p className="font-bold mt-4 md:mt-0 text-red-500 text-lg">
                           ${item.price}
                         </p>
                       </div>
                     </div>
-                    <div className="bg-red-500 p-1 rounded-lg text-white py-2 px-6 flex items-center gap-4">
+                    <div className="bg-red-500 mt-16 md:mt-0 -ml-60 md:-ml-0 p-1 rounded-lg text-white py-1 px-2 md:py-2 md:px-6 flex items-center gap-4">
                       <button
                         onClick={() => updateQuantity(item.id, "decrease")}
                         className="cursor-pointer text-lg font-semibold"
@@ -54,7 +54,7 @@ export const Cart = ({ location, getLocation }) => {
                         +
                       </button>
                     </div>
-                    <div>
+                    <div className="mt-16 md:mt-0">
                       <Trash
                         onClick={() => removeFromCart(item)}
                         className="w-6 h-6 cursor-pointer text-red-500"

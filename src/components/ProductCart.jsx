@@ -7,8 +7,8 @@ export const ProductCart = ({ product }) => {
   const { addToCart } = useCart();
   // console.log(cartItem);
   return (
-    <div className="">
-      <div className="bg-white rounded-xl mx-auto shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-200 ease-in-out p-2 relative mt-10 h-max">
+    <div className="px-4 md:px-0 ml-3 md:ml-0">
+      <div className="bg-white rounded-xl mx-auto shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-200 ease-in-out p-4 relative mt-10 h-max">
         <img
           src={product.image}
           alt={product.title.slice(0, 20) + "..."}
