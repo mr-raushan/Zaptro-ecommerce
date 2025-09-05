@@ -20,13 +20,13 @@ const Contact = () => {
             </div>
             <div>
               <p>
-                <strong>📍 Address:</strong> 123 Tech Lane, Kolkata, India
+                <strong>📍 Address:</strong> Aya Nagar, New Delhi IN
               </p>
               <p>
                 <strong>📧 Email:</strong> support@zaptro.com
               </p>
               <p>
-                <strong>📞 Phone:</strong> +91 98765 43210
+                <strong>📞 Phone:</strong> +91 76339 42484
               </p>
             </div>
           </div>
